@@ -47,7 +47,10 @@ app.listen(PORT, async () => {
     // await tweet.save()
     // console.log(tweet)
 
-    const tweet = await tweetRepo.getWithComments('67a618e14c259b901c586419')
-    console.log(tweet)
+    // const tweet = await tweetRepo.getWithComments('67a618e14c259b901c586419')
+    const tweet = await tweetRepo.getAll(2,4)
+    // console.log(tweet[0]._id)
+    // console.log(tweet[0].id) // Here id is a virtual
+    console.log(tweet[1].contentWithEmail)
     console.log("Mongo DB Connected")
 })

@@ -13,7 +13,7 @@ class TweetRepository {
 
     async get(id){
         try {
-            const tweet = await Tweet.findById(id)
+            const tweet = await Tweet.findById(id).lean()
             return tweet
         } catch (error) {
             console.log("Something went wrong in repo layer")
@@ -23,7 +23,7 @@ class TweetRepository {
 
     async getWithComments(id){
         try {
-            const tweet = await Tweet.findById(id).populate('comments')
+            const tweet = await Tweet.findById(id).populate('comments').lean()
             return tweet
         } catch (error) {
             console.log("Something went wrong in repo layer")
@@ -47,6 +47,16 @@ class TweetRepository {
             return tweet
         } catch (error) {
             console.log("Something went wrong in repo layer")
+            throw error
+        }
+    }
+
+    async getAll(offset, limit){
+        try {
+            const tweet = await Tweet.find().skip(offset).limit(limit)
+            return tweet
+        } catch (error) {
+            console.log("Something Went Wrong in repo layer")
             throw error
         }
     }
