@@ -40,17 +40,18 @@ app.listen(PORT, async () => {
     // await tweet.save()
     // console.log(tweet)
 
-    // const comment1 = await comment.create({content : "this is from comment model"})
-    // const tweet = await tweetRepo.create({content : "Trying to Linking 2 models"})
+    const comment1 = await comment.create({content : "this is second comment from model"})
+    const tweet = await tweetRepo.create({content : "This is content of my tweet with a hook"})
     // console.log(tweet)
-    // tweet.comments.push(comment1)
-    // await tweet.save()
-    // console.log(tweet)
+    tweet.comments.push(comment1)
+    await tweet.save()
+    console.log(tweet)
 
     // const tweet = await tweetRepo.getWithComments('67a618e14c259b901c586419')
-    const tweet = await tweetRepo.getAll(2,4)
+    // const tweet = await tweetRepo.getAll(2,4)
+
     // console.log(tweet[0]._id)
     // console.log(tweet[0].id) // Here id is a virtual
-    console.log(tweet[1].contentWithEmail)
+    // console.log(tweet[1].contentWithEmail)
     console.log("Mongo DB Connected")
 })
