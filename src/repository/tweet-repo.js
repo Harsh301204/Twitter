@@ -41,16 +41,6 @@ class TweetRepository {
         }
     }
 
-    async update(id , data){
-        try {
-            const tweet = await Tweet.findByIdAndUpdate(id , data , {new : true})
-            return tweet
-        } catch (error) {
-            console.log("Something went wrong in repo layer")
-            throw error
-        }
-    }
-
     async getAll(offset, limit){
         try {
             const tweet = await Tweet.find().skip(offset).limit(limit)
