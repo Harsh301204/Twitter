@@ -5,7 +5,8 @@ const hashtagSchema = new mongoose.Schema({
     tittle: {
         type: String,
         required: [true, "Hashtag is missing"],
-        maxlength : [30 , "Hashtag characters limit exceeded"]
+        maxlength : [30 , "Hashtag characters limit exceeded"],
+        unique : true
 
     },
 
@@ -19,6 +20,7 @@ const hashtagSchema = new mongoose.Schema({
     ]
 
 }, { timestamps: true })
+
 
 
 const Hashtag = mongoose.model('Hashtag', hashtagSchema)

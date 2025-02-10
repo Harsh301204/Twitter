@@ -22,6 +22,7 @@ app.listen(PORT, async () => {
 
     const service = new tweetService()
     // await service.create({content : "This is #after #Refactoring"})
+    await service.create({content : "This is #NEW #CONtent with new #hashtags"})
     
    
 
