@@ -8,7 +8,7 @@ class CrudRepository {
             const response = await this.model.create(data)
             return response
         } catch (error) {
-            console.log("Something Went Wrong in Repo Layer")
+            console.log("Something Went Wrong in Repo Layer error is here")
             throw error
         }
     }
@@ -25,7 +25,7 @@ class CrudRepository {
 
     async get(id){
         try {
-            const response = await this.model.findById(id).lean()
+            const response = await this.model.findById(id)
             return response
         } catch (error) {
             console.log("Something Went Wrong in Repo Layer")

@@ -2,13 +2,13 @@ import mongoose from 'mongoose'
 
 const LikeSchema = new mongoose.Schema({
 
-    onModel: {
-        type: String,
+    onModel: {                               // Here We store Model type that either we liked on Tweet or on a Comment
+        type: String,        
         required: true,
         enum: ['Tweet', 'Comment']
     },
 
-    likeable: {
+    likeable: {                          // if we liked on a tweet , we can store tweet id here or comment id if we liked a comment
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         refPath: 'onModel'
