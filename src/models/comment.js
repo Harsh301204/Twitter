@@ -1,4 +1,3 @@
-// const mongoose = require('mongoose')
 import mongoose from 'mongoose'
 const { Schema } = mongoose
 
@@ -7,7 +6,25 @@ const CommentSchema = new Schema({
         type: String,
         required: true
     },
-    userEmail: String
+
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: "user"
+    },
+
+    onModel: {
+        type: String,
+        required: true,
+        enum: ['Tweet', 'Comment']
+    },
+
+    commentable : {
+        type : mongoose.Schema.Types.ObjectId,
+        required : true,
+        refPath : 'OnModel'
+    }
+
 }, { timestamps: true })
 
 const comment = mongoose.model('comment', CommentSchema)
