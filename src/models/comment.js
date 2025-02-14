@@ -30,6 +30,13 @@ const CommentSchema = new Schema({
             type : mongoose.Schema.Types.ObjectId,
             ref : 'comment'
         }
+    ],
+
+    likes : [
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : 'Like'
+        }
     ]
 
 }, { timestamps: true })
