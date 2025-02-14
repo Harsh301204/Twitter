@@ -22,20 +22,20 @@ app.listen(PORT, async () => {
      app.use('/api' , apiRoutes)
 
     console.log("Mongo DB Connected")
-    const userRepo = new UserRepository()
+    // const userRepo = new UserRepository()
     // const response = await userRepo.create({
     //     userEmail : "HarshSharma301@gmail.com",
     //     password : "HarshSHARMA",
     //     name : "Harsh"
     // })
 
-    const user = await userRepo.getAll()
-    const tweetRepo = new TweetRepository()
-    const response1 = await tweetRepo.getAll();
-    // // console.log(response1)
+    // const user = await userRepo.getAll()
+    // const tweetRepo = new TweetRepository()
+    // const response1 = await tweetRepo.getAll();
+    // // // console.log(response1)
 
-    const likeService = new LikeService()
-    await likeService.toggleLike(response1[0].id , 'Tweet' , user[0].id)
+    // const likeService = new LikeService()
+    // await likeService.toggleLike(response1[0].id , 'Tweet' , user[0].id)
 
 
     
