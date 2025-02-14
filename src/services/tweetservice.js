@@ -1,7 +1,7 @@
 // const { TweetRepository, HashtagRepository } = require('../repository/index')
-import { TweetRepository , HashtagRepository } from '../repository/index.js'
+import { TweetRepository, HashtagRepository } from '../repository/index.js'
 
-export  class tweetService {
+export class tweetService {
     constructor() {
         this.tweetRepository = new TweetRepository()
         this.hashtagRepository = new HashtagRepository()
@@ -33,6 +33,16 @@ export  class tweetService {
             throw error
         }
 
+    }
+
+    async get(tweetId) {
+        try {
+            const tweet = await this.tweetRepository.getWithComments(tweetId)
+            return tweet
+        } catch (error) {
+            console.log("There is error in Tweet Service")
+            throw error
+        }
     }
 }
 

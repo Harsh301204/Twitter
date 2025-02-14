@@ -23,7 +23,14 @@ const CommentSchema = new Schema({
         type : mongoose.Schema.Types.ObjectId,
         required : true,
         refPath : 'OnModel'
-    }
+    },
+
+    comments : [
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : 'comment'
+        }
+    ]
 
 }, { timestamps: true })
 
