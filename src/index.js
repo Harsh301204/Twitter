@@ -1,6 +1,6 @@
 import express from 'express'
 import {connect} from './config/database.js'
-import { PORT } from './config/serverconfig.js'
+import  PORT  from './config/serverconfig.js'
 import bodyparser from 'body-parser'
 import {UserRepository , TweetRepository} from './repository/index.js'
 import  LikeService  from './services/likeservice.js'
