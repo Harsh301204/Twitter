@@ -4,19 +4,24 @@ import  PORT  from './config/serverconfig.js'
 import bodyparser from 'body-parser'
 import {UserRepository , TweetRepository} from './repository/index.js'
 import  LikeService  from './services/likeservice.js'
+import passport from 'passport'
 
 
 const app = express()
 
 import apiRoutes from './routes/index.js'
+import { passportAuth } from './config/jwt-middleware.js'
+app.use(bodyparser.json())
+app.use(bodyparser.urlencoded({extended : true}))
+app.use(passport.initialize())
+passportAuth(passport)
 
 
 
 app.listen(PORT, async () => {
     console.log(`Server Started on PORT : ${PORT}`)
 
-    app.use(bodyparser.json())
-    app.use(bodyparser.urlencoded({extended : true}))
+   
 
     await connect();
      app.use('/api' , apiRoutes)
