@@ -5,9 +5,10 @@ import createComment from '../../controller/comment-controller.js'
 import {SignUp,  login } from '../../controller/auth-controller.js'
 import { authenticate } from '../../middlewares/authenticate.js'
 
+
 const router = express.Router()
 
-router.post('/createtweet' , authenticate, createTweet)
+router.post('/createtweet' , createTweet)
 router.post('/likes' , LikeOnPost)
 router.post('/comment' , authenticate, createComment)
 router.get('/Tweet' , GetTweet)
